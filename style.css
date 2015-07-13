@@ -1,8 +1,41 @@
-#header-pic{
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+}
+
+.header-pic {
   width: 100%;
 }
 
-main{
-  display: inline-block;
-  width: 100px;
+.content {
+margin-top: -10px;
+  display: flex;
+  width: 100%;
+}
+
+.column-left {
+	background-color: blue;
+	height: 500px;
+	width: 50%;
+}
+
+.column-right {
+	background-color: green;
+	height: 500px;
+	width: 50%;
+}
+
+.footer {
+	align-items: flex-end;
+	background-color: red;
 }
