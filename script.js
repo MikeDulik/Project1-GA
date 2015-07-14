@@ -1,7 +1,7 @@
-// alert("House Rules:
-//       \nAces count as 1 point.
-//       \nDealer's moves are dictated by casino rules.
-//       \nUser may choose to hit until he has five cards total.");
+alert("House Rules: " +
+      "\nAces count as 1 point" +
+      "\nDealer's moves are dictated by casino rules" +
+      "\nUser may choose to hit up to three times");
 // global vars
 var deckLength = 52;
 var valLength = 52;
