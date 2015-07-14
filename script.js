@@ -24,6 +24,19 @@ var cards = ["A-Spades", "2-Spades", "3-Spades", "4-Spades", "5-Spades", "6-Spad
 var values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
               1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
 
+$( "#d-card1" ).html("");
+$( "#d-card2" ).html("");
+$( "#d-card3" ).html("");
+$( "#d-card4" ).html("");
+$( "#d-card5" ).html("");
+$( "#d-total" ).html("");
+$( "#u-card1" ).html("");
+$( "#u-card2" ).html("");
+$( "#u-card3" ).html("");
+$( "#u-card4" ).html("");
+$( "#u-card5" ).html("");
+$( "#u-total" ).html("");
+
 var dealerCard1 = cards[index];
 var dealerVal1 = values[index];
 //var dealerTotal = dealerVal1;
@@ -147,9 +160,15 @@ if (userChoice1 == "yes"){
   console.log("The user point total is: " + userTotal);
 
   if (userTotal > 21){
+    $( "#d-card2" ).html("Card 2: " + dealerCard2);
+    $( "#d-total" ).html("Point Total: " + dealerTotal);
     alert("USER JUST BUSTED BRO! DEALER WINS!");
+    dealerWins++;
   }
   else if ((userTotal === 21) && dealerTotal !== 21){
+    $( "#d-card2" ).html("Card 2: " + dealerCard2);
+    $( "#d-total" ).html("Point Total: " + dealerTotal);
+    userWins++;
     alert("BLACKJACK! USER WINS!")
   }
   else{
@@ -182,9 +201,15 @@ if (userChoice1 == "yes"){
       console.log("The user point total is: " + userTotal);
 
       if (userTotal > 21){
+        $( "#d-card2" ).html("Card 2: " + dealerCard2);
+        $( "#d-total" ).html("Point Total: " + dealerTotal);
         alert("USER JUST BUSTED BRO! DEALER WINS!");
+        dealerWins++;
       }
       else if ((userTotal === 21) && dealerTotal !== 21){
+        $( "#d-card2" ).html("Card 2: " + dealerCard2);
+        $( "#d-total" ).html("Point Total: " + dealerTotal);
+        userWins++;
         alert("BLACKJACK! USER WINS!")
       }
       else{
@@ -217,14 +242,20 @@ if (userChoice1 == "yes"){
           console.log("The user point total is: " + userTotal);
 
           if (userTotal > 21){
+            $( "#d-card2" ).html("Card 2: " + dealerCard2);
+            $( "#d-total" ).html("Point Total: " + dealerTotal);
             alert("USER JUST BUSTED BRO! DEALER WINS!");
             dealerWins++;
           }
           else if ((userTotal === 21) && (dealerTotal !== 21)){
-            alert("BLACKJACK! USER WINS!");
+            $( "#d-card2" ).html("Card 2: " + dealerCard2);
+            $( "#d-total" ).html("Point Total: " + dealerTotal);
             userWins++;
+            alert("BLACKJACK! USER WINS!")
           }
           else if ((dealerTotal === 21) && (userTotal !== 21)){
+            $( "#d-card2" ).html("Card 2: " + dealerCard2);
+            $( "#d-total" ).html("Point Total: " + dealerTotal);
             alert("BLACKJACK! DEALER WINS!");
             dealerWins++;
           }
