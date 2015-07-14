@@ -140,7 +140,11 @@ var userVal3 = 0;
 if (userChoice1 == "stand"){
   $( "#d-card2" ).html("Card 2: " + dealerCard2);
   $( "#d-total" ).html("Point Total: " + dealerTotal);
-  if (dealerTotal < 17){
+  if (dealerTotal > userTotal){
+    dealerWins++;
+    alert("DEALER WINS!");
+  }
+  else if (dealerTotal < 17){
     deckLength = cards.length;
     valLength = values.length;
     index = 0;
@@ -213,134 +217,177 @@ else if (userChoice1 == "hit"){
                               "\nDealer's first card: " + dealerCard1 +
                               "\nhit/stand");
 
-    if (userChoice1 == "hit"){
+  if (userChoice2 == "stand"){
+    $( "#d-card2" ).html("Card 2: " + dealerCard2);
+    $( "#d-total" ).html("Point Total: " + dealerTotal);
+    if (dealerTotal > userTotal){
+      dealerWins++;
+      alert("DEALER WINS!");
+    }
+    else if (dealerTotal < 17){
       deckLength = cards.length;
       valLength = values.length;
       index = 0;
       index = Math.floor((Math.random() * deckLength) + 1);
       //deckInit(deckLength, valLength, index);
 
-      userCard4 = cards[index];
-      userVal4 = values[index];
-      userTotal = userTotal + userVal4;
+      dealerCard3 = cards[index];
+      dealerVal3 = values[index];
+      dealerTotal = dealerTotal + dealerVal3;
       cards.splice(index, 1);
       values.splice(index, 1);
-      // deckDeal(userCard4, userVal4, index, userTotal);
-      $( "#u-card4" ).html("Card 4: " + userCard4);
-      $( "#u-total" ).html("Point Total: " + userTotal);
+      // deckDeal(dealerCard3, dealerVal3, index, dealerTotal);
+
+      $( "#d-card3" ).html("Card 3: " + dealerCard3);
+      $( "#d-total" ).html("Point Total: " + dealerTotal);
+    }
+    if (dealerTotal > 21){
+      userWins++;
+      alert("DEALER JUST BUSTED! USER WINS!");
+    }
+    else if (userTotal === dealerTotal){
+      alert("PUSH! DEALER AND USER TIE!");
+    }
+    else if (userTotal > dealerTotal){
+      userWins++;
+      alert("USER WINS!");
+    }
+    else {
+      dealerWins++;
+      alert("DEALER WINS!");
+    }
+  }
+  else if (userChoice2 == "hit"){
+    deckLength = cards.length;
+    valLength = values.length;
+    index = 0;
+    index = Math.floor((Math.random() * deckLength) + 1);
+    //deckInit(deckLength, valLength, index);
+
+    userCard4 = cards[index];
+    userVal4 = values[index];
+    userTotal = userTotal + userVal4;
+    cards.splice(index, 1);
+    values.splice(index, 1);
+    // deckDeal(userCard4, userVal4, index, userTotal);
+    $( "#u-card4" ).html("Card 4: " + userCard4);
+    $( "#u-total" ).html("Point Total: " + userTotal);
 
 
-      // console.log("The cards array length is: " + deckLength);
-      // console.log("The values array length is: " + valLength);
-      // console.log("The random index value is: " + index);
-      // console.log("The userCard4 yields: " + userCard4);
-      // console.log("The userCard4 corresponding value yields: " + userVal4);
-      // console.log("The user point total is: " + userTotal);
+    // console.log("The cards array length is: " + deckLength);
+    // console.log("The values array length is: " + valLength);
+    // console.log("The random index value is: " + index);
+    // console.log("The userCard4 yields: " + userCard4);
+    // console.log("The userCard4 corresponding value yields: " + userVal4);
+    // console.log("The user point total is: " + userTotal);
 
-      if (userTotal > 21){
-        $( "#d-card2" ).html("Card 2: " + dealerCard2);
-        $( "#d-total" ).html("Point Total: " + dealerTotal);
-        alert("USER JUST BUSTED BRO! DEALER WINS!");
-        dealerWins++;
-      }
-      else if ((userTotal === 21) && dealerTotal !== 21){
-        $( "#d-card2" ).html("Card 2: " + dealerCard2);
-        $( "#d-total" ).html("Point Total: " + dealerTotal);
-        userWins++;
-        alert("BLACKJACK! USER WINS!")
-      }
-      else{
-        var userChoice2 = prompt("User point total: " + userTotal +
+    if (userTotal > 21){
+      $( "#d-card2" ).html("Card 2: " + dealerCard2);
+      $( "#d-total" ).html("Point Total: " + dealerTotal);
+      alert("USER JUST BUSTED BRO! DEALER WINS!");
+      dealerWins++;
+    }
+    else if ((userTotal === 21) && dealerTotal !== 21){
+      $( "#d-card2" ).html("Card 2: " + dealerCard2);
+      $( "#d-total" ).html("Point Total: " + dealerTotal);
+      userWins++;
+      alert("BLACKJACK! USER WINS!")
+    }
+    else{
+      var userChoice3 = prompt("User point total: " + userTotal +
                                   "\nDealer's first card: " + dealerCard1 +
                                   "\nhit/stand");
 
-        if (userChoice1 == "stand"){
+    if (userChoice3 == "stand"){
+      $( "#d-card2" ).html("Card 2: " + dealerCard2);
+      $( "#d-total" ).html("Point Total: " + dealerTotal);
+      if (dealerTotal > userTotal){
+        dealerWins++;
+        alert("DEALER WINS!");
+      }
+      else if (dealerTotal < 17){
+        deckLength = cards.length;
+        valLength = values.length;
+        index = 0;
+        index = Math.floor((Math.random() * deckLength) + 1);
+        //deckInit(deckLength, valLength, index);
+
+        dealerCard3 = cards[index];
+        dealerVal3 = values[index];
+        dealerTotal = dealerTotal + dealerVal3;
+        cards.splice(index, 1);
+        values.splice(index, 1);
+        // deckDeal(dealerCard3, dealerVal3, index, dealerTotal);
+
+        $( "#d-card3" ).html("Card 3: " + dealerCard3);
+        $( "#d-total" ).html("Point Total: " + dealerTotal);
+
+      }
+        if (userTotal === dealerTotal){
+          alert("PUSH! DEALER AND USER TIE!");
+        }
+        else if (usertTotal > dealerTotal){
+          userWins++;
+          alert("USER WINS!");
+        }
+        //else if ()
+      }
+      else if (userChoice3 == "hit"){
+        deckLength = cards.length;
+        valLength = values.length;
+        index = 0;
+        index = Math.floor((Math.random() * deckLength) + 1);
+        //deckInit(deckLength, valLength, index);
+
+        userCard5 = cards[index];
+        userVal5 = values[index];
+        userTotal = userTotal + userVal5;
+        cards.splice(index, 1);
+        values.splice(index, 1);
+        // deckDeal(userCard5, userVal5, index, userTotal);
+        $( "#u-card5" ).html("Card 5: " + userCard5);
+        $( "#u-total" ).html("Point Total: " + userTotal);
+
+        // console.log("The cards array length is: " + deckLength);
+        // console.log("The values array length is: " + valLength);
+        // console.log("The random index value is: " + index);
+        // console.log("The userCard5 yields: " + userCard3);
+        // console.log("The userCard5 corresponding value yields: " + userVal3);
+        // console.log("The user point total is: " + userTotal);
+
+        if (userTotal > 21){
           $( "#d-card2" ).html("Card 2: " + dealerCard2);
           $( "#d-total" ).html("Point Total: " + dealerTotal);
-          if (dealerTotal < 17){
-            deckLength = cards.length;
-            valLength = values.length;
-            index = 0;
-            index = Math.floor((Math.random() * deckLength) + 1);
-            //deckInit(deckLength, valLength, index);
-
-            dealerCard3 = cards[index];
-            dealerVal3 = values[index];
-            dealerTotal = dealerTotal + dealerVal3;
-            cards.splice(index, 1);
-            values.splice(index, 1);
-            // deckDeal(dealerCard3, dealerVal3, index, dealerTotal);
-
-            $( "#d-card3" ).html("Card 3: " + dealerCard3);
-            $( "#d-total" ).html("Point Total: " + dealerTotal);
-
-          }
-          if (userTotal === dealerTotal){
-            alert("PUSH! DEALER AND USER TIE!");
-          }
-          else if (usertTotal > dealerTotal){
-            userWins++;
-            alert("USER WINS!");
-          }
-          //else if ()
+          alert("USER JUST BUSTED BRO! DEALER WINS!");
+          dealerWins++;
         }
-        else if (userChoice1 == "hit"){
-          deckLength = cards.length;
-          valLength = values.length;
-          index = 0;
-          index = Math.floor((Math.random() * deckLength) + 1);
-          //deckInit(deckLength, valLength, index);
-
-          userCard5 = cards[index];
-          userVal5 = values[index];
-          userTotal = userTotal + userVal5;
-          cards.splice(index, 1);
-          values.splice(index, 1);
-          // deckDeal(userCard5, userVal5, index, userTotal);
-          $( "#u-card5" ).html("Card 5: " + userCard5);
-          $( "#u-total" ).html("Point Total: " + userTotal);
-
-
-          // console.log("The cards array length is: " + deckLength);
-          // console.log("The values array length is: " + valLength);
-          // console.log("The random index value is: " + index);
-          // console.log("The userCard5 yields: " + userCard3);
-          // console.log("The userCard5 corresponding value yields: " + userVal3);
-          // console.log("The user point total is: " + userTotal);
-
-          if (userTotal > 21){
-            $( "#d-card2" ).html("Card 2: " + dealerCard2);
-            $( "#d-total" ).html("Point Total: " + dealerTotal);
-            alert("USER JUST BUSTED BRO! DEALER WINS!");
-            dealerWins++;
-          }
-          else if ((userTotal === 21) && (dealerTotal !== 21)){
-            $( "#d-card2" ).html("Card 2: " + dealerCard2);
-            $( "#d-total" ).html("Point Total: " + dealerTotal);
-            userWins++;
-            alert("BLACKJACK! USER WINS!")
-          }
-          else if ((dealerTotal === 21) && (userTotal !== 21)){
-            $( "#d-card2" ).html("Card 2: " + dealerCard2);
-            $( "#d-total" ).html("Point Total: " + dealerTotal);
-            alert("BLACKJACK! DEALER WINS!");
-            dealerWins++;
-          }
-          else if (dealerTotal > userTotal){
-            alert("DEALER HAS " + dealerTotal +
-                  "\nUSER HAS " + userTotal +
-                  "\nDEALER WINS!");
-            dealerWins++;
-          }
-          else if (userTotal > dealerTotal){
-            alert("DEALER HAS " + dealerTotal +
-                  "\nUSER HAS " + userTotal +
-                  "\nUSER WINS!");
-            userWins++;
-          }
+        else if ((userTotal === 21) && (dealerTotal !== 21)){
+          $( "#d-card2" ).html("Card 2: " + dealerCard2);
+          $( "#d-total" ).html("Point Total: " + dealerTotal);
+          userWins++;
+          alert("BLACKJACK! USER WINS!")
+        }
+        else if ((dealerTotal === 21) && (userTotal !== 21)){
+          $( "#d-card2" ).html("Card 2: " + dealerCard2);
+          $( "#d-total" ).html("Point Total: " + dealerTotal);
+          alert("BLACKJACK! DEALER WINS!");
+          dealerWins++;
+        }
+        else if (dealerTotal > userTotal){
+          alert("DEALER HAS " + dealerTotal +
+                "\nUSER HAS " + userTotal +
+                "\nDEALER WINS!");
+          dealerWins++;
+        }
+        else if (userTotal > dealerTotal){
+          alert("DEALER HAS " + dealerTotal +
+                "\nUSER HAS " + userTotal +
+                "\nUSER WINS!");
+          userWins++;
         }
       }
     }
+  }
   }
 }
 
