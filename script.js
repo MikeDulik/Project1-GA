@@ -160,22 +160,64 @@ if (userChoice1 == "stand"){
 
     $( "#d-card3" ).html("Card 3: " + dealerCard3);
     $( "#d-total" ).html("Point Total: " + dealerTotal);
+//
+    if (dealerTotal > 21){
+      userWins++;
+      alert("DEALER BUSTS! USER WINS!");
+    }
+    else if (dealerTotal > userTotal){
+      dealerWins++;
+      alert("DEALER WINS!");
+    }
+    else if ((dealerTotal < userTotal) && (dealerTotal < 17)){
+      deckLength = cards.length;
+      valLength = values.length;
+      index = 0;
+      index = Math.floor((Math.random() * deckLength) + 1);
+      //deckInit(deckLength, valLength, index);
+
+      dealerCard4 = cards[index];
+      dealerVal4 = values[index];
+      dealerTotal = dealerTotal + dealerVal4;
+      cards.splice(index, 1);
+      values.splice(index, 1);
+      // deckDeal(dealerCard4, dealerVal4, index, dealerTotal);
+
+      $( "#d-card4" ).html("Card 4: " + dealerCard4);
+      $( "#d-total" ).html("Point Total: " + dealerTotal);
+
+      if (dealerTotal > 21){
+        userWins++;
+        alert("DEALER JUST BUSTED! USER WINS!");
+      }
+      else if (userTotal === dealerTotal){
+        alert("PUSH! DEALER AND USER TIE!");
+      }
+      else if (userTotal > dealerTotal){
+        userWins++;
+        alert("USER WINS!");
+      }
+      else {
+        dealerWins++;
+        alert("DEALER WINS!");
+      }
+    }
   }
-  if (dealerTotal > 21){
-    userWins++;
-    alert("DEALER JUST BUSTED! USER WINS!");
-  }
-  else if (userTotal === dealerTotal){
-    alert("PUSH! DEALER AND USER TIE!");
-  }
-  else if (userTotal > dealerTotal){
-    userWins++;
-    alert("USER WINS!");
-  }
-  else {
-    dealerWins++;
-    alert("DEALER WINS!");
-  }
+  // if (dealerTotal > 21){
+  //   userWins++;
+  //   alert("DEALER JUST BUSTED! USER WINS!");
+  // }
+  // else if (userTotal === dealerTotal){
+  //   alert("PUSH! DEALER AND USER TIE!");
+  // }
+  // else if (userTotal > dealerTotal){
+  //   userWins++;
+  //   alert("USER WINS!");
+  // }
+  // else {
+  //   dealerWins++;
+  //   alert("DEALER WINS!");
+  // }
 }
 else if (userChoice1 == "hit"){
   deckLength = cards.length;
@@ -199,6 +241,23 @@ else if (userChoice1 == "hit"){
   // console.log("The userCard3 yields: " + userCard3);
   // console.log("The userCard3 corresponding value yields: " + userVal3);
   // console.log("The user point total is: " + userTotal);
+    if (dealerTotal < 17){
+      deckLength = cards.length;
+      valLength = values.length;
+      index = 0;
+      index = Math.floor((Math.random() * deckLength) + 1);
+      //deckInit(deckLength, valLength, index);
+
+      dealerCard4 = cards[index];
+      dealerVal4 = values[index];
+      dealerTotal = dealerTotal + dealerVal4;
+      cards.splice(index, 1);
+      values.splice(index, 1);
+      // deckDeal(dealerCard4, dealerVal4, index, dealerTotal);
+
+      $( "#d-card3" ).html("Card 3: " + dealerCard4);
+      $( "#d-total" ).html("Point Total: " + dealerTotal);
+    }
 
   if (userTotal > 21){
     $( "#d-card2" ).html("Card 2: " + dealerCard2);
@@ -240,6 +299,23 @@ else if (userChoice1 == "hit"){
 
       $( "#d-card3" ).html("Card 3: " + dealerCard3);
       $( "#d-total" ).html("Point Total: " + dealerTotal);
+      if (dealerTotal < 17){
+        deckLength = cards.length;
+        valLength = values.length;
+        index = 0;
+        index = Math.floor((Math.random() * deckLength) + 1);
+        //deckInit(deckLength, valLength, index);
+
+        dealerCard4 = cards[index];
+        dealerVal4 = values[index];
+        dealerTotal = dealerTotal + dealerVal4;
+        cards.splice(index, 1);
+        values.splice(index, 1);
+        // deckDeal(dealerCard4, dealerVal4, index, dealerTotal);
+
+        $( "#d-card4" ).html("Card 4: " + dealerCard4);
+        $( "#d-total" ).html("Point Total: " + dealerTotal);
+      }
     }
     if (dealerTotal > 21){
       userWins++;
@@ -322,6 +398,23 @@ else if (userChoice1 == "hit"){
         $( "#d-card3" ).html("Card 3: " + dealerCard3);
         $( "#d-total" ).html("Point Total: " + dealerTotal);
 
+        if (dealerTotal < 17){
+          deckLength = cards.length;
+          valLength = values.length;
+          index = 0;
+          index = Math.floor((Math.random() * deckLength) + 1);
+          //deckInit(deckLength, valLength, index);
+
+          dealerCard4 = cards[index];
+          dealerVal4 = values[index];
+          dealerTotal = dealerTotal + dealerVal4;
+          cards.splice(index, 1);
+          values.splice(index, 1);
+          // deckDeal(dealerCard4, dealerVal4, index, dealerTotal);
+
+          $( "#d-card4" ).html("Card 4: " + dealerCard4);
+          $( "#d-total" ).html("Point Total: " + dealerTotal);
+        }
       }
         if (userTotal === dealerTotal){
           alert("PUSH! DEALER AND USER TIE!");
