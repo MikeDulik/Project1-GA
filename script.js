@@ -57,11 +57,12 @@ values.splice(index, 1);
 $( "#d-card1" ).html("Card 1: " + dealerCard1);
 $( "#d-total" ).html("");
 
-console.log("The cards array length is: " + deckLength);
-console.log("The values array length is: " + valLength);
-console.log("The random index value is: " + index);
-console.log("The dealerCard1 yields: " + dealerCard1);
-console.log("The dealerCard1 corresponding value yields: " + dealerVal1);
+// console.log("The cards array length is: " + deckLength);
+// console.log("The values array length is: " + valLength);
+// console.log("The random index value is: " + index);
+// console.log("The dealerCard1 yields: " + dealerCard1);
+// console.log("The dealerCard1 corresponding value yields: " + dealerVal1);
+
 //console.log("The dealer point total is: " + dealerTotal);
 //logOutput(dealerCard1, dealerVal1, dealerTotal);
 
@@ -79,12 +80,12 @@ values.splice(index, 1);
 //deckDeal(dealerCard2, dealerVal2, index, dealerTotal);
 $( "#d-card2" ).html("Card 2: currently face-down");
 
-console.log("The cards array length is: " + deckLength);
-console.log("The values array length is: " + valLength);
-console.log("The random index value is: " + index);
-console.log("The dealerCard2 yields: " + dealerCard2);
-console.log("The dealerCard2 corresponding value yields: " + dealerVal2);
-console.log("The initial dealer point total is: " + dealerTotal);
+// console.log("The cards array length is: " + deckLength);
+// console.log("The values array length is: " + valLength);
+// console.log("The random index value is: " + index);
+// console.log("The dealerCard2 yields: " + dealerCard2);
+// console.log("The dealerCard2 corresponding value yields: " + dealerVal2);
+// console.log("The initial dealer point total is: " + dealerTotal);
 
 
 deckLength = cards.length;
@@ -101,11 +102,11 @@ cards.splice(index, 1);
 values.splice(index, 1);
 // deckDeal(userCard1, userVal1, index, userTotal);
 
-console.log("The cards array length is: " + deckLength);
-console.log("The values array length is: " + valLength);
-console.log("The random index value is: " + index);
-console.log("The userCard1 yields: " + userCard1);
-console.log("The userCard1 corresponding value yields: " + userVal1);
+// console.log("The cards array length is: " + deckLength);
+// console.log("The values array length is: " + valLength);
+// console.log("The random index value is: " + index);
+// console.log("The userCard1 yields: " + userCard1);
+// console.log("The userCard1 corresponding value yields: " + userVal1);
 
 deckLength = cards.length;
 valLength = values.length;
@@ -122,21 +123,57 @@ values.splice(index, 1);
 $( "#u-card2" ).html("Card 2: " + userCard2);
 $( "#u-total" ).html("Point Total: " + userTotal);
 
-console.log("The cards array length is: " + deckLength);
-console.log("The values array length is: " + valLength);
-console.log("The random index value is: " + index);
-console.log("The userCard2 yields: " + userCard2);
-console.log("The userCard 2 corresponding value yields: " + userVal2);
-console.log("The initial user point total is: " + userTotal);
+// console.log("The cards array length is: " + deckLength);
+// console.log("The values array length is: " + valLength);
+// console.log("The random index value is: " + index);
+// console.log("The userCard2 yields: " + userCard2);
+// console.log("The userCard 2 corresponding value yields: " + userVal2);
+// console.log("The initial user point total is: " + userTotal);
 
 var userChoice1 = prompt("User point total: " + userTotal +
                           "\nDealer's first card: " + dealerCard1 +
-                          "\nHit? yes/no");
+                          "\nhit/stand");
 
 var userCard3 = "";
 var userVal3 = 0;
 
-if (userChoice1 == "yes"){
+if (userChoice1 == "stand"){
+  $( "#d-card2" ).html("Card 2: " + dealerCard2);
+  $( "#d-total" ).html("Point Total: " + dealerTotal);
+  if (dealerTotal < 17){
+    deckLength = cards.length;
+    valLength = values.length;
+    index = 0;
+    index = Math.floor((Math.random() * deckLength) + 1);
+    //deckInit(deckLength, valLength, index);
+
+    dealerCard3 = cards[index];
+    dealerVal3 = values[index];
+    dealerTotal = dealerTotal + dealerVal3;
+    cards.splice(index, 1);
+    values.splice(index, 1);
+    // deckDeal(dealerCard3, dealerVal3, index, dealerTotal);
+
+    $( "#d-card3" ).html("Card 3: " + dealerCard3);
+    $( "#d-total" ).html("Point Total: " + dealerTotal);
+  }
+  if (dealerTotal > 21){
+    userWins++;
+    alert("DEALER JUST BUSTED! USER WINS!");
+  }
+  else if (userTotal === dealerTotal){
+    alert("PUSH! DEALER AND USER TIE!");
+  }
+  else if (userTotal > dealerTotal){
+    userWins++;
+    alert("USER WINS!");
+  }
+  else {
+    dealerWins++;
+    alert("DEALER WINS!");
+  }
+}
+else if (userChoice1 == "hit"){
   deckLength = cards.length;
   valLength = values.length;
   index = 0;
@@ -152,12 +189,12 @@ if (userChoice1 == "yes"){
   $( "#u-card3" ).html("Card 3: " + userCard3);
   $( "#u-total" ).html("Point Total: " + userTotal);
 
-  console.log("The cards array length is: " + deckLength);
-  console.log("The values array length is: " + valLength);
-  console.log("The random index value is: " + index);
-  console.log("The userCard3 yields: " + userCard3);
-  console.log("The userCard3 corresponding value yields: " + userVal3);
-  console.log("The user point total is: " + userTotal);
+  // console.log("The cards array length is: " + deckLength);
+  // console.log("The values array length is: " + valLength);
+  // console.log("The random index value is: " + index);
+  // console.log("The userCard3 yields: " + userCard3);
+  // console.log("The userCard3 corresponding value yields: " + userVal3);
+  // console.log("The user point total is: " + userTotal);
 
   if (userTotal > 21){
     $( "#d-card2" ).html("Card 2: " + dealerCard2);
@@ -174,9 +211,9 @@ if (userChoice1 == "yes"){
   else{
     var userChoice2 = prompt("User point total: " + userTotal +
                               "\nDealer's first card: " + dealerCard1 +
-                              "\nHit? yes/no");
+                              "\nhit/stand");
 
-    if (userChoice1 == "yes"){
+    if (userChoice1 == "hit"){
       deckLength = cards.length;
       valLength = values.length;
       index = 0;
@@ -193,12 +230,12 @@ if (userChoice1 == "yes"){
       $( "#u-total" ).html("Point Total: " + userTotal);
 
 
-      console.log("The cards array length is: " + deckLength);
-      console.log("The values array length is: " + valLength);
-      console.log("The random index value is: " + index);
-      console.log("The userCard4 yields: " + userCard4);
-      console.log("The userCard4 corresponding value yields: " + userVal4);
-      console.log("The user point total is: " + userTotal);
+      // console.log("The cards array length is: " + deckLength);
+      // console.log("The values array length is: " + valLength);
+      // console.log("The random index value is: " + index);
+      // console.log("The userCard4 yields: " + userCard4);
+      // console.log("The userCard4 corresponding value yields: " + userVal4);
+      // console.log("The user point total is: " + userTotal);
 
       if (userTotal > 21){
         $( "#d-card2" ).html("Card 2: " + dealerCard2);
@@ -215,9 +252,39 @@ if (userChoice1 == "yes"){
       else{
         var userChoice2 = prompt("User point total: " + userTotal +
                                   "\nDealer's first card: " + dealerCard1 +
-                                  "\nHit? yes/no");
+                                  "\nhit/stand");
 
-        if (userChoice1 == "yes"){
+        if (userChoice1 == "stand"){
+          $( "#d-card2" ).html("Card 2: " + dealerCard2);
+          $( "#d-total" ).html("Point Total: " + dealerTotal);
+          if (dealerTotal < 17){
+            deckLength = cards.length;
+            valLength = values.length;
+            index = 0;
+            index = Math.floor((Math.random() * deckLength) + 1);
+            //deckInit(deckLength, valLength, index);
+
+            dealerCard3 = cards[index];
+            dealerVal3 = values[index];
+            dealerTotal = dealerTotal + dealerVal3;
+            cards.splice(index, 1);
+            values.splice(index, 1);
+            // deckDeal(dealerCard3, dealerVal3, index, dealerTotal);
+
+            $( "#d-card3" ).html("Card 3: " + dealerCard3);
+            $( "#d-total" ).html("Point Total: " + dealerTotal);
+
+          }
+          if (userTotal === dealerTotal){
+            alert("PUSH! DEALER AND USER TIE!");
+          }
+          else if (usertTotal > dealerTotal){
+            userWins++;
+            alert("USER WINS!");
+          }
+          //else if ()
+        }
+        else if (userChoice1 == "hit"){
           deckLength = cards.length;
           valLength = values.length;
           index = 0;
@@ -234,12 +301,12 @@ if (userChoice1 == "yes"){
           $( "#u-total" ).html("Point Total: " + userTotal);
 
 
-          console.log("The cards array length is: " + deckLength);
-          console.log("The values array length is: " + valLength);
-          console.log("The random index value is: " + index);
-          console.log("The userCard5 yields: " + userCard3);
-          console.log("The userCard5 corresponding value yields: " + userVal3);
-          console.log("The user point total is: " + userTotal);
+          // console.log("The cards array length is: " + deckLength);
+          // console.log("The values array length is: " + valLength);
+          // console.log("The random index value is: " + index);
+          // console.log("The userCard5 yields: " + userCard3);
+          // console.log("The userCard5 corresponding value yields: " + userVal3);
+          // console.log("The user point total is: " + userTotal);
 
           if (userTotal > 21){
             $( "#d-card2" ).html("Card 2: " + dealerCard2);
