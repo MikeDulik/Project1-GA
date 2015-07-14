@@ -39,8 +39,10 @@ index = Math.floor((Math.random() * deckLength) + 1);
 var dealerCard1 = cards[index];
 var dealerVal1 = values[index];
 cards.splice(index, 1);
-values.splice(index, 1)
+values.splice(index, 1);
 // deckDeal(dealerCard1, dealerVal1, dealerTotal);
+$( "#d-card1" ).html("Card 1: " + dealerCard1);
+$( "#d-total" ).html("");
 
 console.log("The cards array length is: " + deckLength);
 console.log("The values array length is: " + valLength);
@@ -62,6 +64,7 @@ var dealerTotal = dealerVal1 + dealerVal2;
 cards.splice(index, 1);
 values.splice(index, 1);
 //deckDeal(dealerCard2, dealerVal2, index, dealerTotal);
+$( "#d-card2" ).html("Card 2: currently face-down");
 
 console.log("The cards array length is: " + deckLength);
 console.log("The values array length is: " + valLength);
@@ -78,7 +81,9 @@ index = Math.floor((Math.random() * deckLength) + 1);
 //deckInit(deckLength, valLength, index);
 
 var userCard1 = cards[index];
+$( "#u-card1" ).html("Card 1: " + userCard1);
 var userVal1 = values[index];
+$( "#u-total" ).html("");
 cards.splice(index, 1);
 values.splice(index, 1);
 // deckDeal(userCard1, userVal1, index, userTotal);
@@ -101,6 +106,8 @@ var userTotal = userVal1 + userVal2;
 cards.splice(index, 1);
 values.splice(index, 1);
 // deckDeal(userCard2, dealerVal2, index, userTotal);
+$( "#u-card2" ).html("Card 2: " + userCard2);
+$( "#u-total" ).html("Point Total: " + userTotal);
 
 console.log("The cards array length is: " + deckLength);
 console.log("The values array length is: " + valLength);
@@ -129,6 +136,8 @@ if (userChoice1 == "yes"){
   cards.splice(index, 1);
   values.splice(index, 1);
   // deckDeal(userCard3, userVal3, index, userTotal);
+  $( "#u-card3" ).html("Card 3: " + userCard3);
+  $( "#u-total" ).html("Point Total: " + userTotal);
 
   console.log("The cards array length is: " + deckLength);
   console.log("The values array length is: " + valLength);
@@ -161,6 +170,9 @@ if (userChoice1 == "yes"){
       cards.splice(index, 1);
       values.splice(index, 1);
       // deckDeal(userCard4, userVal4, index, userTotal);
+      $( "#u-card4" ).html("Card 4: " + userCard4);
+      $( "#u-total" ).html("Point Total: " + userTotal);
+
 
       console.log("The cards array length is: " + deckLength);
       console.log("The values array length is: " + valLength);
@@ -193,6 +205,9 @@ if (userChoice1 == "yes"){
           cards.splice(index, 1);
           values.splice(index, 1);
           // deckDeal(userCard5, userVal5, index, userTotal);
+          $( "#u-card5" ).html("Card 5: " + userCard5);
+          $( "#u-total" ).html("Point Total: " + userTotal);
+
 
           console.log("The cards array length is: " + deckLength);
           console.log("The values array length is: " + valLength);
