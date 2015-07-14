@@ -18,24 +18,28 @@ body {
 }
 
 .content {
-margin-top: -10px;
+  margin-top: -10px;
   display: flex;
   width: 100%;
 }
 
 .column-left {
-	background-color: blue;
-	height: 500px;
+	background-color: red;
+	height: 210px;
 	width: 50%;
 }
 
 .column-right {
-	background-color: green;
-	height: 500px;
+	background-color: blue;
+	height: 210px;
 	width: 50%;
 }
 
-.footer {
+footer {
 	align-items: flex-end;
-	background-color: red;
+  background-color: lemonchiffon;
+}
+
+.buttons {
+
 }

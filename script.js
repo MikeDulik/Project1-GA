@@ -1,9 +1,15 @@
+// alert("House Rules:
+//       \nAces count as 1 point.
+//       \nDealer's moves are dictated by casino rules.
+//       \nUser may choose to hit until he has five cards total.");
 // global vars
 var deckLength = 52;
 var valLength = 52;
+var userWins = 0;
+var dealerWins = 0;
 //var index = Math.floor((Math.random() * deckLength) + 1);
 //var dealerCard1 = "";
-// var dealerVal1 = 0;
+//var dealerVal1 = 0;
 //var dealerTotal = 0;
 // var userTotal = 0;
 
@@ -194,6 +200,31 @@ if (userChoice1 == "yes"){
           console.log("The userCard5 yields: " + userCard3);
           console.log("The userCard5 corresponding value yields: " + userVal3);
           console.log("The user point total is: " + userTotal);
+
+          if (userTotal > 21){
+            alert("USER JUST BUSTED BRO! DEALER WINS!");
+            dealerWins++;
+          }
+          else if ((userTotal === 21) && (dealerTotal !== 21)){
+            alert("BLACKJACK! USER WINS!");
+            userWins++;
+          }
+          else if ((dealerTotal === 21) && (userTotal !== 21)){
+            alert("BLACKJACK! DEALER WINS!");
+            dealerWins++;
+          }
+          else if (dealerTotal > userTotal){
+            alert("DEALER HAS " + dealerTotal +
+                  "\nUSER HAS " + userTotal +
+                  "\nDEALER WINS!");
+            dealerWins++;
+          }
+          else if (userTotal > dealerTotal){
+            alert("DEALER HAS " + dealerTotal +
+                  "\nUSER HAS " + userTotal +
+                  "\nUSER WINS!");
+            userWins++;
+          }
         }
       }
     }
